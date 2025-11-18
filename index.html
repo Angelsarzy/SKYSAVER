@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SKYSAVER || Home of Life-Saving Drones</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js">
+      alert("Welcome to SKYSAVER!");
+    </script>
+  </head>
+  <body>
+    <div class="age-gate" id="ageGate">
+      <div class="modal">
+        <h1>Are You 18+?</h1>
+        <p>You must be of legal age to enter SkySaver Drones.</p>
+        <div class="buttons">
+          <button class="yes-btn" onclick="allowEntry()">YES</button>
+          <button class="no-btn" onclick="denyEntry()">NO</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="locked-screen" id="lockedScreen" style="display: none">
+      <div>
+        <div class="lock-message">THIS PAGE IS LOCKED</div>
+        <p>You must be 18+ to enter this site.</p>
+      </div>
+    </div>
+
+    <div id="mainContent">
+      <h1>Welcome to SkySaver</h1>
+      <p>You’re cleared for takeoff. Let’s build something legendary.</p>
+    </div>
+    <header id="header">
+      <div class="logo"><span style="color: blue">SKY</span> SAVER</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.css">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="video-section">
+      <video autoplay muted loop playsinline preload="metadata">
+        <source
+          src="grok-video-00ca20cc-9ca3-443e-a754-c6a2870d3e77.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      <div class="content">
+        <h1>WELCOME TO<span style="color: blue"> SKY</span> SAVER</h1>
+        <p>Precision Above, Protection Below.</p>
+        <a href="join.html"><button class="btn">JOIN US</button></a>
+      </div>
+    </section>
+    <br />
+    <section class="hero">
+      <div class="hero-content">
+        <h1>SKYSAVER</h1>
+        <p>
+          The world’s first drone built to save lives — not just capture them.
+        </p>
+        <div class="hero-buttons">
+          <a href="#" class="btn-primary">Explore SKYSAVER Series</a>
+          <a href="#" class="btn-secondary">Watch Film</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">SKYSAVER Series</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <video
+            src="drone 1.mp4"
+            width="100%"
+            alt="SKYSAVER Rescue"
+            loop
+            muted
+            autoplay
+          ></video>
+          <div class="product-info">
+            <h3>SKYSAVER Rescue</h3>
+            <p>Instant parachute • Emergency payload drop • 47 min flight</p>
+            <a href="#" style="color: #00d4ff; font-weight: 700"
+              >Learn More →</a
+            >
+          </div>
+        </div>
+        <div class="product-card">
+          <video
+            src="drone 2.mp4"
+            width="100%"
+            alt="SKYSAVER Rescue"
+            loop
+            muted
+            autoplay
+          ></video>
+          <div class="product-info">
+            <h3>SKYSAVER Thermal</h3>
+            <p>
+              640×512 thermal • Zero-visibility rescue • Encrypted streaming
+            </p>
+            <a href="#" style="color: #00d4ff; font-weight: 700"
+              >Learn More →</a
+            >
+          </div>
+        </div>
+        <div class="product-card">
+          <video
+            src="grok-video-505b1717-9b98-4034-80b0-5bac70bb6009.mp4"
+            width="100%"
+            alt="SKYSAVER Rescue"
+            loop
+            muted
+            autoplay
+          ></video>
+          <div class="product-info">
+            <h3>SKYSAVER Shield</h3>
+            <p>360° protection • Triple redundancy • IP55 industrial grade</p>
+            <a href="#" style="color: #00d4ff; font-weight: 700"
+              >Learn More →</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <br />
+    <br />
+    <section style="background: #050505">
+      <h2 class="section-title">Safety Without Compromise</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>0.4s Parachute Recovery</h3>
+          <p>Deploys instantly on total failure. Zero damage. Every time.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Emergency Payload Drop</h3>
+          <p>Deliver defibrillators, life rings, or medicine from 120 m.</p>
+        </div>
+        <div class="feature-card">
+          <h3>ADS-B In Detection</h3>
+          <p>Sees manned aircraft. Automatically yields the sky.</p>
+        </div>
+        <div class="feature-card">
+          <h3>47-Minute Flight Time</h3>
+          <p>Longest endurance in lifesaving class. Stay on scene longer.</p>
+        </div>
+      </div>
+    </section>
+    <br />
+    <br />
+    <section class="testimonials">
+      <blockquote class="quote">
+        “In 22 years of mountain rescue, I’ve never seen a tool that saves more
+        lives in less time.”
+      </blockquote>
+      <p class="author">— Captain Elena Morales, Colorado Search & Rescue</p>
+    </section>
+
+    <footer>
+      <div class="footer-logo">SKYSAVER</div>
+      <div class="footer-links">
+        <a href="#">Contact</a>
+        <a href="#">Enterprise</a>
+        <a href="#">Support</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+      <p class="copyright">
+        © 2025 SKYSAVER Technology Co., Ltd. All Rights Reserved.
+      </p>
+    </footer>
+    <script>
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("header")
+          .classList.toggle("scrolled", window.scrollY > 50);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Let's Build Something Insane</title>
+    <link rel="stylesheet" href="contact.css" />
+    <style></style>
+  </head>
+  <body>
+    <header id="header">
+      <div class="logo"><span style="color: blue">SKY</span>SAVER</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="contact-section">
+      <h1>Let’s Build Something Insane</h1>
+      <p>
+        Drop me a message and I’ll get back to you within 24 hours — usually
+        much faster.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p>Email: <a href="mailto:you@skydrones.com">you@skydrones.com</a></p>
+          <p>
+            Instagram:
+            <a href="https://instagram.com/angelsarzy" target="_blank"
+              >@angelsarzy</a
+            >
+          </p>
+          <p>Discord: angelsarzyskydro</p>
+          <p>
+            YouTube:
+            <a href="https://youtube.com/@angelsarzy" target="_blank"
+              >@angelsarzy</a
+            >
+          </p>
+          <p>Location: Umauahia, Abia State, Nigeria</p>
+          <p>Response time: Usually 6 hours</p>
+        </div>
+
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input
+            type="email"
+            name="_replyto"
+            placeholder="Your Email"
+            required
+          />
+          <select name="interest" required>
+            <option value="" disabled selected style="color: antiquewhite">
+              What do you need?
+            </option>
+            <option>Custom Drone Build</option>
+            <option>Repair / Rebuild</option>
+            <option>PID Tuning</option>
+            <option>Cinematic Rig</option>
+            <option>Racing Drone</option>
+            <option>Coaching / Consulting</option>
+            <option>Just saying hi</option>
+          </select>
+          <textarea
+            name="message"
+            placeholder="Tell me about your project, budget, timeline…"
+            required
+          ></textarea>
+          <button type="submit">Send Message →</button>
+        </form>
+      </div>
+    </section>
+
+    <script>
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("header")
+          .classList.toggle("scrolled", window.scrollY > 50);
+      });
+    </script>
+  </body>
+</html>

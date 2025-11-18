@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up • SkySaver</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="signup.css" />
+    <style></style>
+  </head>
+  <body>
+    <video autoplay muted loop playsinline id="bgVideo">
+      <source
+        src="grok-video-00ca20cc-9ca3-443e-a754-c6a2870d3e77.mp4"
+        type="video/mp4"
+      />
+    </video>
+    <div class="overlay"></div>
+
+    <header>
+      <div class="logo"><span style="color: blue">SKY</span>Saver</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="box">
+        <h1>Create Account</h1>
+        <p>Join your dedicated client portal</p>
+
+        <div id="signup-form">
+          <div class="input-group">
+            <input type="text" id="fullName" placeholder="Full Name" required />
+          </div>
+          <div class="input-group">
+            <input type="tel" id="phone" placeholder="Phone" />
+          </div>
+          <div class="input-group">
+            <input
+              type="email"
+              id="email"
+              placeholder="Email Address"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <input
+              type="password"
+              id="password"
+              placeholder="Create Password"
+              required
+            />
+            <span class="password-toggle" onclick="togglePass('password')"
+              >Show</span
+            >
+          </div>
+          <div class="input-group">
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirm Password"
+              required
+            />
+
+            <span
+              class="password-toggle"
+              onclick="togglePass('confirmPassword')"
+              >Show</span
+            >
+          </div>
+
+          <button id="sendCodeBtn">Send Verification Code</button>
+          <div class="message" id="message"></div>
+          <p style="margin-top: 20px; font-size: 14px">
+            Already have an account?
+            <a href="join.html" style="color: #00d4ff">Log in</a>
+          </p>
+        </div>
+
+        <div id="verification" class="verification">
+          <p>We sent a 6-digit code to your email</p>
+          <div class="input-group">
+            <input
+              type="text"
+              id="code"
+              maxlength="6"
+              placeholder="------"
+              class="verification-code"
+            />
+          </div>
+          <button id="verifyBtn">Verify & Create Account</button>
+          <div class="message" id="verifyMessage"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const supabase = window.supabase.createClient(
+        "https://gsqojmxyipceatskwbze.supabase.co",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdzcW9qbXh5aXBjZWF0c2t3YnplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMyMDI2NjYsImV4cCI6MjA3ODc3ODY2Nn0.gWkHKu0jOrUbIsBJZRdwP6xw-v2TJOXJ_Mc2kTaUHwc"
+      );
+
+      let tempUserData = null;
+
+      function togglePass(id) {
+        const x = document.getElementById(id);
+        const toggle = x.nextElementSibling;
+        if (x.type === "password") {
+          x.type = "text";
+          toggle.textContent = "Hide";
+        } else {
+          x.type = "password";
+          toggle.textContent = "Show";
+        }
+      }
+
+      document
+        .getElementById("sendCodeBtn")
+        .addEventListener("click", async () => {
+          const name = document.getElementById("fullName").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const pass = document.getElementById("password").value;
+          const confirm = document.getElementById("confirmPassword").value;
+          const msg = document.getElementById("message");
+
+          if (!name || !email || !pass)
+            return (msg.innerHTML =
+              "<span class='error'>Fill all fields</span>");
+          if (pass !== confirm)
+            return (msg.innerHTML =
+              "<span class='error'>Passwords don't match</span>");
+          if (pass.length < 6)
+            return (msg.innerHTML =
+              "<span class='error'>Password too short</span>");
+
+          msg.innerHTML = "Generating code...";
+
+          const code = Math.floor(100000 + Math.random() * 900000).toString();
+
+          tempUserData = {
+            name,
+            email,
+            password: pass,
+            code,
+            created_at: new Date(),
+          };
+
+          console.log("Your verification code:", code);
+          alert("Check console (F12) for code: ");
+
+          document.getElementById("signup-form").style.display = "none";
+          document.getElementById("verification").style.display = "block";
+          msg.innerHTML =
+            "<span class='success'>Code sent! Check console</span>";
+        });
+
+      document
+        .getElementById("verifyBtn")
+        .addEventListener("click", async () => {
+          const entered = document.getElementById("code").value.trim();
+          const msg = document.getElementById("verifyMessage");
+
+          if (entered !== tempUserData.code) {
+            return (msg.innerHTML = "<span class='error'>Invalid code</span>");
+          }
+
+          msg.innerHTML = "Creating account...";
+
+          const { data, error } = await supabase.auth.signUp({
+            email: tempUserData.email,
+            password: tempUserData.password,
+            options: {
+              data: { full_name: tempUserData.name },
+            },
+          });
+
+          if (error) {
+            msg.innerHTML = `<span class='error'>${error.message}</span>`;
+          } else {
+            msg.innerHTML =
+              "<span class='success'>Account created! Redirecting...</span>";
+            setTimeout(() => (location.href = "index.html"), 1500);
+          }
+        });
+    </script>
+  </body>
+</html>

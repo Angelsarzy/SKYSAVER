@@ -1,0 +1,179 @@
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        height: 100%;
+        font-family: "Segoe UI", sans-serif;
+        color: white;
+        overflow: hidden;
+      }
+      #bgVideo {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
+        z-index: -1;
+        object-fit: cover;
+      }
+      .overlay {
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.5)
+        );
+        z-index: 1;
+      }
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .logo {
+        font-size: 28px;
+        font-weight: 800;
+        background: linear-gradient(135deg, #00d4ff, #fff);
+        color: transparent;
+      }
+      nav a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        margin-left: 30px;
+        font-weight: 500;
+      }
+      nav a:hover {
+        color: #00d4ff;
+      }
+
+      .container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        position: relative;
+        z-index: 5;
+      }
+      .box {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 50px 40px;
+        width: 100%;
+        max-width: 460px;
+        text-align: center;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      }
+      h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+      p {
+        opacity: 0.9;
+        margin-bottom: 30px;
+      }
+
+      .input-group {
+        position: relative;
+        margin-bottom: 18px;
+      }
+      input {
+        width: 100%;
+        padding: 16px 18px;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        color: white;
+        font-size: 16px;
+        outline: none;
+        transition: 0.3s;
+      }
+      input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      input:focus {
+        border-color: #00d4ff;
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+      }
+      .password-toggle {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .password-toggle:hover {
+        color: #00d4ff;
+      }
+
+      button {
+        width: 100%;
+        padding: 16px;
+        background: linear-gradient(135deg, #00d4ff, #0099cc);
+        border: none;
+        border-radius: 12px;
+        color: white;
+        font-size: 17px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: 0.3s;
+      }
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(0, 212, 255, 0.4);
+      }
+
+      .message {
+        margin: 15px 0;
+        min-height: 24px;
+        font-size: 14px;
+      }
+      .success {
+        color: #51ffa5;
+      }
+      .error {
+        color: #ff6b6b;
+      }
+
+      .verification {
+        display: none;
+      }
+      .verification input {
+        text-align: center;
+        font-size: 24px;
+        letter-spacing: 10px;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          padding: 15px;
+          flex-direction: column;
+        }
+        nav a {
+          margin: 10px;
+        }
+        .box {
+          padding: 40px 30px;
+        }
+      }
